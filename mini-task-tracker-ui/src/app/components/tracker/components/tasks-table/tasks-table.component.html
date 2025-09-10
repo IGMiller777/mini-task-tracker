@@ -3,7 +3,7 @@
     <tr>
       <th></th>
       <th>ID</th>
-      <th>Name</th>
+      <th>Title</th>
       <th>Tasks</th>
       <th>Status</th>
       <th></th>
@@ -13,12 +13,16 @@
   <ng-template pTemplate="body" let-product>
     <tr>
       <td>
-        <p-tableCheckbox (click)="toggleStatus(product)" [value]="product" />
+        <p-checkbox
+          [binary]="true"
+          [(ngModel)]="product.completed"
+          (onChange)="toggleStatus(product)">
+        </p-checkbox>
       </td>
       <td>{{ product.id }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.tasks }}</td>
-      <td>{{ product.status }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.tasks || '-' }}</td>
+      <td>{{ product.completed ? 'Completed' : 'Not Completed' }}</td>
       <td>
         <p-button (onClick)="removeTask($event, product)" [rounded]="true" [text]="true" icon="pi pi-times"  severity="danger" />
       </td>

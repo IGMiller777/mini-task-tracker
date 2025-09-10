@@ -1,14 +1,15 @@
 export interface TaskDTO {
   id: string;
-  name: string;
+  title: string;
   tasks: string;
-  status: boolean;
+  completed: boolean;
 }
 
 export interface TaskCreateDTO {
-  name: string;
+  title: string;
 }
 
 export interface TaskUpdateStatusDTO {
-  status: boolean;
+  id: string;
+  completed: boolean;
 }

@@ -23,14 +23,15 @@ export class CreateTaskModalComponent {
   public closeModalEmitter = output<TaskCreateDTO | null>();
 
   public form = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    title: new FormControl('', [Validators.required])
   })
 
   public createTask(): void {
-    const {name} = this.form.getRawValue();
+    const {title} = this.form.getRawValue();
 
-    if (this.form.valid && name) {
-      this.closeModalEmitter.emit({name});
+    if (this.form.valid && title) {
+      this.closeModalEmitter.emit({title});
+      this.form.reset();
     }
   }
 

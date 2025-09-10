@@ -1,6 +1,8 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, computed, inject, input, model, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
@@ -9,21 +11,30 @@ import { TaskDTO, TaskUpdateStatusDTO } from '@shared/models/task.model';
 @Component({
   selector: 'app-tasks-table',
   standalone: true,
-  imports: [TableModule, Button, ToastModule, ConfirmDialogModule],
+  imports: [TableModule, Button, ToastModule, ConfirmDialogModule, CheckboxModule, FormsModule],
   templateUrl: './tasks-table.component.html',
   styleUrl: './tasks-table.component.scss',
-  providers: [MessageService, ConfirmationService],
+  providers: [MessageService, ConfirmationService]
 })
 export class TasksTableComponent {
   private readonly _confirmationService = inject(ConfirmationService);
   private readonly _messageService = inject(MessageService);
 
   public $products = input<TaskDTO[]>([]);
+  public $selectedProducts = [
+    {
+      id: 'da336181-f6c0-4588-9e01-e7dc53a30778',
+      title: 'asdasd',
+      tasks: 'asd',
+      completed: true
+    }
+  ];
+
   public toggleTaskEmitter = output<TaskUpdateStatusDTO>();
   public removeTaskEmitter = output<string>();
 
-  public toggleStatus({ status }: TaskDTO) {
-    this.toggleTaskEmitter.emit({ status });
+  public toggleStatus({completed, id}: TaskDTO) {
+    this.toggleTaskEmitter.emit({id, completed: completed});
   }
 
   public removeTask(event: Event, task: TaskDTO) {
@@ -31,7 +42,7 @@ export class TasksTableComponent {
     console.log(task);
   }
 
-  private openConfirmDialog(event: Event, { id }: TaskDTO): void {
+  private openConfirmDialog(event: Event, {id}: TaskDTO): void {
     this._confirmationService.confirm({
       target: event.target as EventTarget,
       message: 'Do you want to delete this record?',
@@ -49,9 +60,9 @@ export class TasksTableComponent {
         this._messageService.add({
           severity: 'error',
           summary: 'Rejected',
-          detail: 'You have rejected',
+          detail: 'You have rejected'
         });
-      },
+      }
     });
   }
 }

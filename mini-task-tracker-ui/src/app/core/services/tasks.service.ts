@@ -12,12 +12,10 @@ export class TasksService implements OnDestroy {
     return this._tasksRepository.getTasks();
   }
 
-  // TODO
   public createTask(payload: TaskCreateDTO): Observable<TaskDTO> {
     return this._tasksRepository.createTask(payload);
   }
 
-  // TODO
   public updateTaskStatus(payload: TaskUpdateStatusDTO): Observable<TaskDTO> {
     return this._tasksRepository.updateTaskStatus(payload);
   }
