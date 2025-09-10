@@ -17,7 +17,6 @@ class TaskController {
 
             return parsedData.tasks;
         } catch (error) {
-            console.log(error)
             if (error.code === 'ENOENT') {
                 return [];
             }
@@ -25,10 +24,8 @@ class TaskController {
         }
     }
 
-
     static async writeTasks(tasks) {
         try {
-            console.log(tasks);
             await fs.mkdir(DATA_DIR, {recursive: true});
 
             await fs.writeFile(DATA_FILE, JSON.stringify({tasks}, null, 2), "utf8");
@@ -42,7 +39,7 @@ class TaskController {
             const tasks = await TaskController.readTasks();
             res.json(tasks);
         } catch (error) {
-            res.status(500).json({error: 'Ошибка получения задач'});
+            res.status(500).json({error: 'Getting tasks error'});
         }
     }
 
@@ -51,7 +48,7 @@ class TaskController {
             const {title = '', completed = false} = req.body;
 
             if (!title || typeof title !== 'string') {
-                return res.status(400).json({error: 'Title обязателен и должен быть строкой'});
+                return res.status(400).json({error: 'Title is required and must be a string'});
             }
 
             const newTask = {
@@ -62,17 +59,14 @@ class TaskController {
                 createdAt: new Date().toISOString()
             };
 
-
             const tasks = await TaskController.readTasks();
-            console.log(tasks)
-
             tasks.push(newTask);
 
             await TaskController.writeTasks(tasks);
 
             res.status(201).json(newTask);
         } catch (error) {
-            res.status(500).json({error: 'Ошибка создания задачи'});
+            res.status(500).json({error: 'Error creating task'});
         }
     }
 
@@ -85,7 +79,7 @@ class TaskController {
             const taskIndex = tasks.findIndex(task => task.id === id);
 
             if (taskIndex === -1) {
-                return res.status(404).json({error: 'Задача не найдена'});
+                return res.status(404).json({error: 'Task not found'});
             }
 
             tasks[taskIndex] = {...tasks[taskIndex], ...updates};
@@ -93,7 +87,7 @@ class TaskController {
 
             res.json(tasks[taskIndex]);
         } catch (error) {
-            res.status(500).json({error: 'Ошибка обновления задачи'});
+            res.status(500).json({error: 'Error updating task'});
         }
     }
 
@@ -105,13 +99,13 @@ class TaskController {
             const filteredTasks = tasks.filter(task => task.id !== id);
 
             if (filteredTasks.length === tasks.length) {
-                return res.status(404).json({error: 'Задача не найдена'});
+                return res.status(404).json({error: 'Task is not found'});
             }
 
             await TaskController.writeTasks(filteredTasks);
             res.status(204).send();
         } catch (error) {
-            res.status(500).json({error: 'Ошибка удаления задачи'});
+            res.status(500).json({error: 'Error task deleting'});
         }
     }
 }

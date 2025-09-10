@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d11954f-7b51-446e-815a-5b57cefde6c9" name="Changes" comment="feat: add ui part">
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/controllers/tasks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/data/tasks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/routes/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mini-task-tracker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-task-tracker-ui/src/app/components/tracker/components/tasks-table/tasks-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-ui/src/app/components/tracker/components/tasks-table/tasks-table.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/shared/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/shared/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/controllers/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/controllers/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/mini-task-tracker-ui" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -106,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757511871129</updated>
-      <workItem from="1757511872418" duration="11305000" />
+      <workItem from="1757511872418" duration="11854000" />
     </task>
     <servers />
   </component>
