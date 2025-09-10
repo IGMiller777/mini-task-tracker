@@ -1,0 +1,34 @@
+# Node.js
+.idea
+mini-task-tracker-server/node_modules
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Angular-specific (for mini-task-tracker-ui)
+dist/
+.angular/
+*.log
+coverage/
+
+# Environment files
+.env
+*.env
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+build/
+out/
