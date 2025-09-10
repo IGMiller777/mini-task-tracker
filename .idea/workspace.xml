@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d11954f-7b51-446e-815a-5b57cefde6c9" name="Changes" comment="feat: add ui part">
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/shared/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-task-tracker-server/shared/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/controllers/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/controllers/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-task-tracker-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-task-tracker-server/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +60,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mini-task-tracker-ui/src/app/shared" />
       <recent name="$PROJECT_DIR$/mini-task-tracker-ui/src/app/core" />
       <recent name="$PROJECT_DIR$/mini-task-tracker-ui/src/app" />
@@ -103,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757511871129</updated>
-      <workItem from="1757511872418" duration="11854000" />
+      <workItem from="1757511872418" duration="12210000" />
     </task>
     <servers />
   </component>
