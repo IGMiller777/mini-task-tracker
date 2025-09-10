@@ -1,0 +1,31 @@
+<p-table [value]="$products()">
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Tasks</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>
+        <p-tableCheckbox (click)="toggleStatus(product)" [value]="product" />
+      </td>
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.tasks }}</td>
+      <td>{{ product.status }}</td>
+      <td>
+        <p-button (onClick)="removeTask($event, product)" [rounded]="true" [text]="true" icon="pi pi-times"  severity="danger" />
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-toast />
+<p-confirmDialog />

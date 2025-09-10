@@ -1,0 +1,15 @@
+<p-dialog header="Create Task" [modal]="true" [(visible)]="$createTaskDialogVisible" [style]="{ width: '25rem' }">
+  <form [formGroup]="form" class="task-modal">
+    <div class="task-modal__inputs">
+      <label for="taskName" class="font-semibold w-6rem">Task Name</label>
+      <input formControlName="name" pInputText id="taskName" class="flex-auto" autocomplete="off"/>
+    </div>
+
+    <div class="task-modal__submit">
+      <p-button label="Cancel" severity="secondary" (onClick)="closeModal()"/>
+
+      <p-button [disabled]="form.invalid" label="Save" (onClick)="createTask()"/>
+    </div>
+  </form>
+
+</p-dialog>

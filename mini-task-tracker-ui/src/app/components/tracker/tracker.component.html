@@ -1,0 +1,17 @@
+<div class="tracker-grid">
+  <div class="tracker-grid__header">
+    <h1>Mini Task Tracker</h1>
+
+    <p-button (onClick)="openCreateTaskModal()" label="Create Task" severity="success"/>
+  </div>
+
+  @if (products$ | async; as products) {
+    <app-tasks-table [$products]="products" (toggleTaskEmitter)="toggleTask($event)" (removeTaskEmitter)="removeTask($event)"/>
+  } @else {
+    <h4>No Tasks created yet.</h4>
+  }
+
+</div>
+
+<app-create-task-modal [($createTaskDialogVisible)]="$createTaskDialogVisible"
+                       (closeModalEmitter)="createTask($event)"/>
