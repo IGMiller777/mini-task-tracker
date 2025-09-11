@@ -24,12 +24,12 @@
       <td>{{ product.tasks || '-' }}</td>
       <td>{{ product.completed ? 'Completed' : 'Not Completed' }}</td>
       <td>
-        <p-button (onClick)="removeTask($event, product)" [rounded]="true" [text]="true" icon="pi pi-times"  severity="danger" />
+        <p-button (onClick)="removeTask($event, product)" [rounded]="true" [text]="true" icon="pi pi-times"
+                  severity="danger"/>
       </td>
     </tr>
   </ng-template>
 </p-table>
 
-
-<p-toast />
-<p-confirmDialog />
+<p-toast/>
+<p-confirmDialog/>

@@ -2,13 +2,11 @@
   <form [formGroup]="form" class="task-modal">
     <div class="task-modal__inputs">
       <label for="taskName" class="font-semibold w-6rem">Task Name</label>
-      <input formControlName="title" pInputText id="taskName" class="flex-auto" autocomplete="off"/>
+      <input formControlName="title" pInputText id="taskName" class="flex-auto" placeholder="Enter task name" autocomplete="off"/>
     </div>
 
     <div class="task-modal__submit">
-      <p-button label="Cancel" severity="secondary" (onClick)="closeModal()"/>
-
-      <p-button [disabled]="form.invalid" label="Save" (onClick)="createTask()"/>
+      <p-button [disabled]="form.invalid" label="Create" (onClick)="createTask()"/>
     </div>
   </form>
 

@@ -1,9 +1,13 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { TaskCreateDTO, TaskDTO, TaskUpdateStatusDTO } from '@shared/models/task.model';
+import {
+  TaskCreateDTO,
+  TaskDTO,
+  TaskUpdateStatusDTO,
+} from '@shared/models/task.model';
 import { TasksRepository } from '../repositories/tasks.repository';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class TasksService implements OnDestroy {
   private readonly _destroy$ = new Subject<void>();
   private readonly _tasksRepository = inject(TasksRepository);
@@ -24,7 +28,7 @@ export class TasksService implements OnDestroy {
     return this._tasksRepository.deleteTask(id);
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this._destroy$.next();
     this._destroy$.complete();
   }

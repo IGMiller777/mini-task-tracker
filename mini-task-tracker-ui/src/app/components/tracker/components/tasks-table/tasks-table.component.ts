@@ -21,14 +21,6 @@ export class TasksTableComponent {
   private readonly _messageService = inject(MessageService);
 
   public $products = input<TaskDTO[]>([]);
-  public $selectedProducts = [
-    {
-      id: 'da336181-f6c0-4588-9e01-e7dc53a30778',
-      title: 'asdasd',
-      tasks: 'asd',
-      completed: true
-    }
-  ];
 
   public toggleTaskEmitter = output<TaskUpdateStatusDTO>();
   public removeTaskEmitter = output<string>();
