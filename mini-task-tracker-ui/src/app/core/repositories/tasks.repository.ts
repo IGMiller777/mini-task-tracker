@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { catchError, Observable, of, Subject } from 'rxjs';
 import {
   TaskCreateDTO,
   TaskDTO,
@@ -15,19 +15,19 @@ export class TasksRepository implements OnDestroy {
   private readonly _httpClient = inject(HttpClient);
 
   public getTasks(): Observable<TaskDTO[]> {
-    return this._httpClient.get<TaskDTO[]>(`${this._baseUrl}/tasks`);
+    return this._httpClient.get<TaskDTO[]>(`${this._baseUrl}/tasks`).pipe(catchError(() => of([])));
   }
 
-  public createTask(payload: TaskCreateDTO): Observable<TaskDTO> {
-    return this._httpClient.post<TaskDTO>(`${this._baseUrl}/tasks`, payload);
+  public createTask(payload: TaskCreateDTO): Observable<TaskDTO | null> {
+    return this._httpClient.post<TaskDTO>(`${this._baseUrl}/tasks`, payload).pipe(catchError(() => of(null)));
   }
 
-  public updateTaskStatus({id, completed}: TaskUpdateStatusDTO): Observable<TaskDTO> {
-    return this._httpClient.patch<TaskDTO>(`${this._baseUrl}/tasks/${id}`, {completed});
+  public updateTaskStatus({id, completed}: TaskUpdateStatusDTO): Observable<TaskDTO | null> {
+    return this._httpClient.patch<TaskDTO>(`${this._baseUrl}/tasks/${id}`, {completed}).pipe(catchError(() => of(null)));
   }
 
-  public deleteTask(id: string): Observable<TaskDTO> {
-    return this._httpClient.delete<TaskDTO>(`${this._baseUrl}/tasks/${id}`);
+  public deleteTask(id: string): Observable<TaskDTO | null> {
+    return this._httpClient.delete<TaskDTO>(`${this._baseUrl}/tasks/${id}`).pipe(catchError(() => of(null)));
   }
 
   public ngOnDestroy(): void {

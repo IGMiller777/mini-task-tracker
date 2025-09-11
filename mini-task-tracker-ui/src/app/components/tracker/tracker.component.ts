@@ -55,44 +55,93 @@ export class TrackerComponent {
     if (task) {
       this._tasksService
         .createTask(task)
-        .pipe(
-          takeUntilDestroyed(this._destroyRef),
-          tap(() => this._refreshTrigger.next()),
-          finalize(() => this.showMessageCreated())
-        )
-        .subscribe();
+        .pipe(takeUntilDestroyed(this._destroyRef))
+        .subscribe({
+          next: response => {
+            if (response) {
+              this._refreshTrigger.next();
+
+              this.showMessage(
+                'success',
+                'Successfully created task',
+                'You have successfully created a new task'
+              );
+            } else {
+              this.showMessage(
+                'error',
+                'Error while creating task',
+                'Please try again later'
+              );
+            }
+          },
+        });
     }
   }
 
   public toggleTask(task: TaskUpdateStatusDTO): void {
     this._tasksService
       .updateTaskStatus(task)
-      .pipe(
-        tap(() => this._refreshTrigger.next()),
-        takeUntilDestroyed(this._destroyRef)
-      )
-      .subscribe(console.log);
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe({
+        next: response => {
+          this._refreshTrigger.next();
+
+          if (response) {
+            this.showMessage(
+              'success',
+              'Successfully changed Task status',
+              'You have successfully change a Task status'
+            );
+          } else {
+            this.showMessage(
+              'error',
+              'Error while changing task status',
+              'Please try again later'
+            );
+          }
+        },
+      });
   }
 
   public removeTask(id: string): void {
     this._tasksService
       .deleteTask(id)
-      .pipe(
-        tap(() => this._refreshTrigger.next()),
-        takeUntilDestroyed(this._destroyRef)
-      )
-      .subscribe();
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe({
+        next: response => {
+          if (response) {
+            this._refreshTrigger.next();
+
+            this.showMessage(
+              'success',
+              'Successfully Task deleted',
+              'You have successfully delete a Task'
+            );
+          } else {
+            this.showMessage(
+              'error',
+              'Error while deleting task',
+              'Please try again later'
+            );
+          }
+        },
+      });
   }
 
   public openCreateTaskModal(): void {
     this.$createTaskDialogVisible.set(true);
   }
 
-  private showMessageCreated(): void {
+  private showMessage(
+    severity: 'success' | 'error',
+    summary: string,
+    detail: string
+  ): void {
     this._messageService.add({
-      severity: 'success',
-      summary: 'Successfully created task',
-      detail: 'You have successfully created a new task',
+      severity,
+      summary,
+      detail,
+      life: 2000
     });
   }
 }

@@ -17,7 +17,8 @@
       "id": "4e27b10e-eb47-423e-9999-fd58ebac1251",
       "title": "My Task 2",
       "completed": false,
-      "createdAt": "2025-09-11T08:57:41.582Z"
+      "createdAt": "2025-09-11T08:57:41.582Z",
+      "updatedAt": "2025-09-11T09:20:48.142Z"
     }
   ]
 }

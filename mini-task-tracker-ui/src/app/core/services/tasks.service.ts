@@ -16,15 +16,17 @@ export class TasksService implements OnDestroy {
     return this._tasksRepository.getTasks();
   }
 
-  public createTask(payload: TaskCreateDTO): Observable<TaskDTO> {
+  public createTask(payload: TaskCreateDTO): Observable<TaskDTO | null> {
     return this._tasksRepository.createTask(payload);
   }
 
-  public updateTaskStatus(payload: TaskUpdateStatusDTO): Observable<TaskDTO> {
+  public updateTaskStatus(
+    payload: TaskUpdateStatusDTO
+  ): Observable<TaskDTO | null> {
     return this._tasksRepository.updateTaskStatus(payload);
   }
 
-  public deleteTask(id: string): Observable<TaskDTO> {
+  public deleteTask(id: string): Observable<TaskDTO | null> {
     return this._tasksRepository.deleteTask(id);
   }
 
